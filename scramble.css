@@ -1,0 +1,48 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #0c67ae;
+}
+
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+#scrambled-word {
+	font-size: 30px;
+	margin: 20px 0;
+}
+
+input[type="text"] {
+	padding: 10px;
+	font-size: 20px;
+	border: none;
+	border-radius: 5px;
+	margin: 10px 0;
+}
+
+button {
+	padding: 10px 20px;
+	font-size: 20px;
+	background-color: #0c67ae;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #073e68;
+}
+
+#message {
+	margin: 20px 0;
+	font-size: 20px;
+}
