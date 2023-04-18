@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animal Trip Quiz</title>
+    <link rel="stylesheet" type="text/css" href="riddlecss.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Animal Trip Quiz</h1>
+		<p>In a small village, there are three people: a baker, a butcher and a candlestick maker.</p>
+		<p>Each person has a pet: the baker has a cat, the butcher has a dog and the candlestick maker has a bird.</p>
+		<p>One day the Easter Bunny was hopping through town and they all decided to go on a trip together, each bringing along their pet.</p>
+		<p>Along the way, they passed through four towns.</p>
+		<p>In the first town, they met a man with two cats.</p>
+		<p>In the second town, they met a woman with three dogs.</p>
+		<p>In the third town, they met a child with four birds.</p>
+		<p>And in the fourth town, they met a farmer with a cat, a dog, and a bird.</p>
+		<form onsubmit="checkAnswer(event)">
+			<label for="answer"><strong>How many animals were traveling together on the trip?</strong></label>
+			<input type="text" id="answer" name="answer" required>
+			<button id="submit-button">Submit Answer</button>
+		</form>
+	</div>
+	<script>
+		function checkAnswer(event) {
+			event.preventDefault(); // Prevent the form from submitting normally
+			
+			const answerInput = document.getElementById("answer");
+			const answer = answerInput.value.trim().toLowerCase(); // Get the user's answer and convert it to lowercase for comparison
+			
+			if (answer === "4" || answer === "four") { // Check if the answer is correct
+				window.location.href = "puzzle.html"; // Redirect to the next page if the answer is correct
+			} else {
+				alert("Sorry, that's not the correct answer. Please try again."); // Show an error message if the answer is incorrect
+				answerInput.value = ""; // Clear the input field
+			}
+		}
+	</script>
+</body>
+</html>
