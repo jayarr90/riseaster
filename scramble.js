@@ -1,4 +1,4 @@
-const words = ["easter", "bunny", "chocolate", "basket", "cadburys", "creme-egg", "hunt", "chick", "nestle"];
+const words = ["snow", "bauble", "chocolate", "tinsel", "rudolph", "sleigh-bells", "santa claus", "winter wonderland", "presents"];
 let shuffledWord = "";
 let wordIndex = 0;
 let correctAnswers = 0;
