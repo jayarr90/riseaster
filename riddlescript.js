@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Set the date we're counting down to (current time + 5 minutes)
-    var countDownDate = new Date().getTime() + 5 * 60 * 1000;
+    // Check if there's a stored countdown time
+    var storedCountdownTime = localStorage.getItem('countdownTime');
+    
+    // Set the date we're counting down to
+    var countDownDate;
+    
+    if (storedCountdownTime) {
+        // Use the stored time if available
+        countDownDate = parseInt(storedCountdownTime, 10);
+    } else {
+        // Set a new countdown time (current time + 5 minutes)
+        countDownDate = new Date().getTime() + 5 * 60 * 1000;
+        // Store the initial countdown time
+        localStorage.setItem('countdownTime', countDownDate);
+    }
 
     // Update the countdown every 1 second
     var x = setInterval(function () {
@@ -21,9 +34,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (distance < 0) {
             clearInterval(x);
             document.getElementById('countdown').innerHTML = 'EXPIRED';
+            // Clear the stored countdown time after it expires
+            localStorage.removeItem('countdownTime');
         }
     }, 1000);
 });
+
 
 const submitButton = document.getElementById("submit-button");
 const answerInput = document.getElementById("answer-input");
