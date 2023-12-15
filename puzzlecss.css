@@ -4,6 +4,14 @@ body {
     color: #0c67ae;
 }
 
+#countdown {
+	color: #0c67ae;
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
 #title {
     height: 150px;
     width: 400px;
