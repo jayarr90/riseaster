@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Xmas Trip Quiz</title>
+	<title>12 Days of Christmas</title>
     <link rel="stylesheet" type="text/css" href="riddlecss.css">
 </head>
 <body>
+	<div id="countdown"></div>
 	<div class="container">
-		<h1>Xmas Trip Quiz</h1>
-		<p>In a small village, there are three people: a baker, a butcher and a candlestick maker.</p>
-		<p>Each person has a pet: the baker has a cat, the butcher has a dog and the candlestick maker has a bird.</p>
-		<p>One day the Easter Bunny was hopping through town and they all decided to go on a trip together, each bringing along their pet.</p>
-		<p>Along the way, they passed through four towns.</p>
-		<p>In the first town, they met a man with two cats.</p>
-		<p>In the second town, they met a woman with three dogs.</p>
-		<p>In the third town, they met a child with four birds.</p>
-		<p>And in the fourth town, they met a farmer with a cat, a dog, and a bird.</p>
+		<h1>12 days of Christmas</h1>
+		<p>On the first day of Christmas, my true love gave to me a partridge in a pear tree. Each day, my true love adds one new gift to the previous day's gifts.</p>
 		<form onsubmit="checkAnswer(event)">
-			<label for="answer"><strong>How many animals were traveling together on the trip?</strong></label>
+			<label for="answer"><strong>How many gifts did I have at the end of the 12th day?</strong></label>
 			<input type="text" id="answer" name="answer" required>
 			<button id="submit-button">Submit Answer</button>
 		</form>
 	</div>
 	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+    // Set the date we're counting down to (current time + 5 minutes)
+    var countDownDate = new Date().getTime() + 5 * 60 * 1000;
+
+    // Update the countdown every 1 second
+    var x = setInterval(function () {
+        // Get the current date and time
+        var now = new Date().getTime();
+
+        // Calculate the remaining time
+        var distance = countDownDate - now;
+
+        // Calculate minutes and seconds
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the countdown
+        document.getElementById('countdown').innerHTML = minutes + 'm ' + seconds + 's ';
+
+        // If the countdown is over, display a message
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById('countdown').innerHTML = 'EXPIRED';
+        }
+    }, 1000);
+});
 		function checkAnswer(event) {
 			event.preventDefault(); // Prevent the form from submitting normally
 			
 			const answerInput = document.getElementById("answer");
 			const answer = answerInput.value.trim().toLowerCase(); // Get the user's answer and convert it to lowercase for comparison
 			
-			if (answer === "4" || answer === "four") { // Check if the answer is correct
+			if (answer === "78" || answer === "seventy eight") { // Check if the answer is correct
 				window.location.href = "scramble.html"; // Redirect to the next page if the answer is correct
 			} else {
 				alert("Sorry, that's not the correct answer. Please try again."); // Show an error message if the answer is incorrect
